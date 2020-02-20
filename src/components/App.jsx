@@ -21,12 +21,11 @@ class App extends React.Component {
   }
 
   updateTicketElapsedWaitTime() {
-    let newMasterTicketList = this.state.masterTicketList.slice();
-    newMasterTicketList.forEach(ticket =>
+    [...this.state.masterTicketList].forEach(ticket =>
       ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
     );
     this.setState({
-      masterTicketList: newMasterTicketList
+      masterTicketList: [...this.state.masterTicketList]
     });
   }
   
