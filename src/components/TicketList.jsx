@@ -10,7 +10,8 @@ const TicketList = props => {
         const ticket = props.ticketList[ticketId]
         return (
           <Ticket
-            key={ticket.id}
+            key={ticketId}
+            ticketId={ticketId}
             names={ticket.names}
             location={ticket.location}
             issue={ticket.issue}
