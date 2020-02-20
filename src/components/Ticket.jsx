@@ -8,26 +8,26 @@ const Ticket = props => {
       <h4>{props.formattedWaitTime}</h4>
       <p className="issue"><em>{props.issue}</em></p>
       <hr/>
-    </div>
+    </div>;
   if(props.currentRouterPath === '/admin') {
     return (
       <div onClick={() =>
-        {props.onTicketSelection({
-          names: props.names,
-          location: props.location,
-          issue: props.issue,
-          formattedWaitTime: props.formattedWaitTime
-        }
-      )}}>
+      {props.onTicketSelection({
+        names: props.names,
+        location: props.location,
+        issue: props.issue,
+        formattedWaitTime: props.formattedWaitTime
+      }
+      );}}>
         {ticketInformation}
       </div>
-    )
+    );
   } else {
     return (
-    <div>
-      {ticketInformation}
-    </div>
-    )
+      <div>
+        {ticketInformation}
+      </div>
+    );
   }
 };
 

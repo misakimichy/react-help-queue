@@ -6,23 +6,26 @@ const TicketList = props => {
   return (
     <div>
       <hr/>
-      {props.ticketList.map(ticket =>
-        <Ticket
-          key={ticket.id}
-          names={ticket.names}
-          location={ticket.location}
-          issue={ticket.issue}
-          formattedWaitTime={ticket.formattedWaitTime}
-          currentRouterPath={props.currentRouterPath}
-          onTicketSelection={props.onTicketSelection}  
-        />
-      )}
+      {Object.keys(props.ticketList).map(ticketId => {
+        const ticket = props.ticketList[ticketId]
+        return (
+          <Ticket
+            key={ticket.id}
+            names={ticket.names}
+            location={ticket.location}
+            issue={ticket.issue}
+            formattedWaitTime={ticket.formattedWaitTime}
+            currentRouterPath={props.currentRouterPath}
+            onTicketSelection={props.onTicketSelection}  
+          />
+        )
+      })}
     </div>
   );
 };
 
 TicketList.propTypes = {
-  ticketList: PropTypes.array,
+  ticketList: PropTypes.object,
   currentRouterPath: PropTypes.string,
   onTicketSelection: PropTypes.func
 };

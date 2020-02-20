@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterTicketList: [],
+      masterTicketList: {},
       selectedTicket: null
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
@@ -23,6 +23,10 @@ class App extends React.Component {
     );
   }
 
+  componentWillMount() {
+    clearInterval(this.waitTimeUpdateTimer)
+  }
+
   updateTicketElapsedWaitTime() {
     [...this.state.masterTicketList].forEach(ticket =>
       ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
@@ -33,9 +37,12 @@ class App extends React.Component {
   }
   
   handleAddingNewTicketToList(newTicket) {
-    newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
+    const newMaterTicketList = Object.assign({}, this.state.masterTicketList, {
+      [newTicket.id]: newTicket
+    });
+    newMaterTicketList[newTicket.id].formattedWaitTime = newMaterTicketList[newTicket.id].timeOpen.fromNow(true)
     this.setState({
-      masterTicketList: [...this.state.masterTicketList, newTicket]
+      masterTicketList: newMaterTicketList
     });
   }
 

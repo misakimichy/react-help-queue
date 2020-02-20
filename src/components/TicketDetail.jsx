@@ -1,20 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const TicketDetail = () => {
-    return (
-        <div>
-            <hr />
-            <h1>{props.selectedTicket.names} - {props.selectedTicket.location}</h1>
-            <h2>Submitted {props.selectedTicket.formattedWaitTime} ago</h2>
-            <h4><em>{props.selectedTicket.issue}</em></h4>
-            <hr />
-        </div>
-    )
-}
+const TicketDetail = props => {
+  return (
+    <div>
+      <hr />
+      <h1>{props.selectedTicket.names} - {props.selectedTicket.location}</h1>
+      <h2>Submitted {props.selectedTicket.formattedWaitTime} ago</h2>
+      <h4><em>{props.selectedTicket.issue}</em></h4>
+      <hr />
+    </div>
+  );
+};
 
 TicketDetail.propTypes = {
-    selectedTicket: PropTypes.object
-}
+  selectedTicket: PropTypes.object
+};
 
-export default TicketDetail
+export default TicketDetail;
