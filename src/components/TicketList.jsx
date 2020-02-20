@@ -8,10 +8,11 @@ const TicketList = props => {
       <hr/>
       {props.ticketList.map(ticket =>
         <Ticket
-          location={ticket.location}
           names={ticket.names}
+          location={ticket.location}
           issue={ticket.issue}
           formattedWaitTime={ticket.formattedWaitTime}
+          currentRouterPath={props.currentRouterPath}
           key={ticket.id} />
       )}
     </div>
@@ -19,7 +20,8 @@ const TicketList = props => {
 };
 
 TicketList.propTypes = {
-  ticketList: PropTypes.array
+  ticketList: PropTypes.array,
+  currentRouterPath: PropTypes.string
 };
 
 export default TicketList;
