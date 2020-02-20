@@ -25,13 +25,13 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    clearInterval(this.waitTimeUpdateTimer)
+    clearInterval(this.waitTimeUpdateTimer);
   }
 
   updateTicketElapsedWaitTime() {
-    const newMasterTicketList = Object.assign({}, this.state.masterTicketList)
+    const newMasterTicketList = Object.assign({}, this.state.masterTicketList);
     Object.keys(newMasterTicketList).forEach(ticketId =>
-      newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[itcketId].timeOpen).fromNow(true)
+      newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true)
     );
     this.setState({
       masterTicketList: newMasterTicketList
@@ -39,11 +39,11 @@ class App extends React.Component {
   }
   
   handleAddingNewTicketToList(newTicket) {
-    const newTicketId = v4()
+    const newTicketId = v4();
     const newMasterTicketList = Object.assign({}, this.state.masterTicketList, {
       [newTicketId]: newTicket
     });
-    newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true)
+    newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true);
     this.setState({
       masterTicketList: newMasterTicketList
     });
@@ -52,7 +52,7 @@ class App extends React.Component {
   handleChangingSelectedTicket(ticketId) {
     this.setState({
       selectedTicket: ticketId
-    })
+    });
   }
 
   render(){

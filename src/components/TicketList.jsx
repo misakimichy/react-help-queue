@@ -7,7 +7,7 @@ const TicketList = props => {
     <div>
       <hr/>
       {Object.keys(props.ticketList).map(ticketId => {
-        const ticket = props.ticketList[ticketId]
+        const ticket = props.ticketList[ticketId];
         return (
           <Ticket
             key={ticketId}
@@ -19,7 +19,7 @@ const TicketList = props => {
             currentRouterPath={props.currentRouterPath}
             onTicketSelection={props.onTicketSelection}  
           />
-        )
+        );
       })}
     </div>
   );
