@@ -4,7 +4,6 @@ import Header from './Header';
 import NewTicketControl from './NewTicketControl';
 import NotFound from './NotFound';
 import { Switch, Route } from 'react-router-dom';
-import Moment from 'moment';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,36 +31,11 @@ class App extends React.Component {
   }
   
   handleAddingNewTicketToList(newTicket) {
-    let newMasterTicketList = this.state.masterTicketList.slice();
     newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
-    newMasterTicketList.push(newTicket);
-    this.setState({ masterTicketList: newMasterTicketList });
+    this.setState({
+      masterTicketList: [...this.state.masterTicketList, newTicket]
+    });
   }
-  // componentWillUnmount() {
-  //   console.log('componentWillUnmount');
-  //   clearInterval(this.waitTimeUpdateTimer);
-  // }
-
-  // componentWillMount() {
-  //   console.log('componentWillMount');
-  // }
-
-  // componentWillReceiveProps() {
-  //   console.log('componentWillReceiveProps');
-  // }
-
-  // shouldComponentUpdate() {
-  //   console.log('shouldComponentUpdate');
-  //   return false;
-  // }
-
-  // componentWillUpdate() {
-  //   console.log('componentWillUpdate');
-  // }
-
-  // componentDidUpdate() {
-  //   console.log('componentDidUpdate');
-  // }
 
   render(){
     return (
