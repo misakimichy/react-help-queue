@@ -1,11 +1,14 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import TicketList from './TicketList'
+import { Switch, Route, withRouter } from 'react-router-dom'
+import { v4 } from 'uuid'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Header from './Header'
 import NewTicketControl from './NewTicketControl'
-import Admin from './Admin'
+import TicketList from './TicketList'
 import NotFound from './NotFound'
-import { v4 } from 'uuid'
+import Admin from './Admin'
+import './styles.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -60,11 +63,11 @@ class App extends React.Component {
       <div>
         <Header/>
         <Switch>
-          <Route exact path='/' render={() => <TicketList ticketList={this.state.masterTicketList}/> } />
+          <Route exact path='/' render={() => <TicketList ticketList={this.props.masterTicketList}/> } />
           <Route path='/newticket' render={() => <NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
           <Route path='/admin' render={props =>
             <Admin
-              ticketList={this.state.masterTicketList}
+              ticketList={this.props.masterTicketList}
               currentRouterPath={props.location.pathname}
               onTicketSelection={this.handleChangingSelectedTicket}
               selectedTicket={this.state.selectedTicket}
@@ -72,15 +75,19 @@ class App extends React.Component {
           />
           <Route component={NotFound} />
         </Switch>
-        <style global jsx>{`
-          div {
-            font-family:  Arial, Helvetica, sans-serif;
-            font-size: 18px;
-          }
-        `}</style>
       </div>
     )
   }
 }
 
-export default App
+App.propTypes = {
+  masterTicketList: PropTypes.object
+}
+
+const mapStateToProps = state => {
+  return {
+    masterTicketList: state
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App))

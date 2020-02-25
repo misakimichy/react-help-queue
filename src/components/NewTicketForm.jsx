@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Moment from 'moment'
+import { connect } from 'react-redux'
+import Ticket from './Ticket'
 
-const NewTicketForm = props => {
+class NewTicketForm extends Component {
   let _names = null
   let _location = null
   let _issue = null
 
-  const handleNewTicketFormSubmission = event => {
+  handleNewTicketFormSubmission = event => {
     event.preventDefault()
+    const { dispatch } = props
+    const action = {
+      type: 'ADD_TICKET',
+      id: v4(),
+      names: _names.value,
+      location: _location.value,
+      issue: _issue.value,
+      timeOpen: new Date().getTime()
+    }
+    dispatch(action)
     props.onNewTicketCreation({
       names: _names.value,
       location: _location.value,
@@ -39,40 +51,6 @@ const NewTicketForm = props => {
           ref={textarea => {_issue = textarea}} />
         <button type='submit'>Help!</button>
       </form>
-      <style jsx>{`
-                .form-container {
-                    margin: 30px;
-                }
-
-                form, input, textarea, button {
-                    border-radius: 4px;
-                }
-
-                form {
-                    width: 80%;
-                    padding: 30px;
-                    border: 1px solid #efefef;
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                input, textarea, button {
-                    width: 50%;
-                    font-size: 18px;
-                    margin: 0 auto;
-                    margin-bottom: 30px;
-                }
-
-                textarea {
-                    height: 5em;
-                }
-
-                button {
-                    width: 20%;
-                    height: 40px;
-                }
-            `}</style>
     </div>
   )
 }
@@ -80,4 +58,6 @@ const NewTicketForm = props => {
 NewTicketForm.propTypes = {
   onNewTicketCreation: PropTypes.func
 }
+
+NewTicketForm = connect()(NewTicketForm)
 export default NewTicketForm

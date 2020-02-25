@@ -1,0 +1,53 @@
+div {
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 18px;
+  }
+
+.not-found {
+    background: url('https://http.cat/404') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.form-container {
+    margin: 30px;
+}
+
+form, input, textarea, button {
+    border-radius: 4px;
+}
+
+form {
+    width: 80%;
+    padding: 30px;
+    border: 1px solid #efefef;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea, button {
+    width: 50%;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+textarea {
+    height: 5em;
+}
+
+button {
+    width: 20%;
+    height: 40px;
+}
