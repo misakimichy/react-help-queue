@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const TicketDetail = props => {
   return (
@@ -10,11 +10,11 @@ const TicketDetail = props => {
       <h4><em>{props.selectedTicket.issue}</em></h4>
       <hr />
     </div>
-  );
-};
+  )
+}
 
 TicketDetail.propTypes = {
   selectedTicket: PropTypes.object
-};
+}
 
-export default TicketDetail;
+export default TicketDetail

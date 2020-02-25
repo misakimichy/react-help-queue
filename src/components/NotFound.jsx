@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const NotFound = props => {
   return(
@@ -28,11 +28,11 @@ const NotFound = props => {
                 }
             `}</style>
     </main>
-  );
-};
+  )
+}
 
 NotFound.propTypes = {
   location: PropTypes.object
-};
+}
 
-export default NotFound;
+export default NotFound
