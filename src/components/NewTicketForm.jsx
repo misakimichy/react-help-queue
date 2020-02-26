@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import Moment from 'moment'
 import { connect } from 'react-redux'
-import Ticket from './Ticket'
+import { v4 } from 'uuid'
 
-class NewTicketForm extends Component {
+const NewTicketForm = props => {
   let _names = null
   let _location = null
   let _issue = null
 
-  handleNewTicketFormSubmission = event => {
+  const handleNewTicketFormSubmission = event => {
     event.preventDefault()
-    const { dispatch } = props
+    const { dispatch } = this.props
     const action = {
       type: 'ADD_TICKET',
       id: v4(),
@@ -21,7 +20,7 @@ class NewTicketForm extends Component {
       timeOpen: new Date().getTime()
     }
     dispatch(action)
-    props.onNewTicketCreation({
+    this.props.onNewTicketCreation({
       names: _names.value,
       location: _location.value,
       issue: _issue.value,
@@ -55,9 +54,4 @@ class NewTicketForm extends Component {
   )
 }
 
-NewTicketForm.propTypes = {
-  onNewTicketCreation: PropTypes.func
-}
-
-NewTicketForm = connect()(NewTicketForm)
-export default NewTicketForm
+export default connect()(NewTicketForm)

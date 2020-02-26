@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
-import { v4 } from 'uuid'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Header from './Header'
@@ -32,13 +31,13 @@ class App extends React.Component {
   }
 
   updateTicketElapsedWaitTime() {
-    const newMasterTicketList = Object.assign({}, this.state.masterTicketList)
-    Object.keys(newMasterTicketList).forEach(ticketId =>
-      newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true)
-    )
-    this.setState({
-      masterTicketList: newMasterTicketList
-    })
+    // const newMasterTicketList = Object.assign({}, this.state.masterTicketList)
+    // Object.keys(newMasterTicketList).forEach(ticketId =>
+    //   newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true)
+    // )
+    // this.setState({
+    //   masterTicketList: newMasterTicketList
+    // })
   }
   
   handleAddingNewTicketToList(newTicket) {
@@ -86,7 +85,7 @@ App.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterTicketList: state
+    masterTicketList: state.masterTicketList
   }
 }
 
