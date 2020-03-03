@@ -29,7 +29,7 @@ Admin.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    selectedTicket: state.string,
+    selectedTicket: state.selectedTicket,
     ticketList: state.masterTicketList
   }
 }
