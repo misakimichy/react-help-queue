@@ -30,7 +30,7 @@ const NewTicketForm = props => {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleNewTicketFormSubmission}>
+      <form onSubmit={handleNewTicketFormSubmission} autocomplete='off'>
         <input
           type='text'
           id='names'

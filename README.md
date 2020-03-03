@@ -17,6 +17,11 @@ Create a mock application of Epicodus Help Queue.
     - New ticket form: `/#/newticket`
 
 
+## Local Storage
+Local storage is available in this application. Local storage codes exist in `/src/middleware/persist-data-locally.js` and `/src/index/jsx`.
+![gif of local storage](img/local-storage.gif)
+
+
 
 ## Installation:
 1. Clone this repo:
