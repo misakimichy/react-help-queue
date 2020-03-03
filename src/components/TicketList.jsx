@@ -17,7 +17,6 @@ const TicketList = props => {
             issue={ticket.issue}
             formattedWaitTime={ticket.formattedWaitTime}
             currentRouterPath={props.currentRouterPath}
-            onTicketSelection={props.onTicketSelection}  
           />
         )
       })}
@@ -28,7 +27,6 @@ const TicketList = props => {
 TicketList.propTypes = {
   ticketList: PropTypes.object,
   currentRouterPath: PropTypes.string,
-  onTicketSelection: PropTypes.func
 }
 
 export default TicketList

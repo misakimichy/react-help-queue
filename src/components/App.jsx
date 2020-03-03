@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -7,19 +7,10 @@ import NewTicketControl from './NewTicketControl'
 import TicketList from './TicketList'
 import NotFound from './NotFound'
 import Admin from './Admin'
+import constant from './../constants'
 import './styles.css'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      masterTicketList: {},
-      selectedTicket: null
-    }
-    this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this)
-    this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(this)
-  }
-
+class App extends Component {
   componentDidMount() {
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updateTicketElapsedWaitTime(), 60000
@@ -31,29 +22,16 @@ class App extends React.Component {
   }
 
   updateTicketElapsedWaitTime() {
-    // const newMasterTicketList = Object.assign({}, this.state.masterTicketList)
-    // Object.keys(newMasterTicketList).forEach(ticketId =>
-    //   newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true)
-    // )
-    // this.setState({
-    //   masterTicketList: newMasterTicketList
-    // })
-  }
-  
-  handleAddingNewTicketToList(newTicket) {
-    const newTicketId = v4()
-    const newMasterTicketList = Object.assign({}, this.state.masterTicketList, {
-      [newTicketId]: newTicket
-    })
-    newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true)
-    this.setState({
-      masterTicketList: newMasterTicketList
-    })
-  }
-
-  handleChangingSelectedTicket(ticketId) {
-    this.setState({
-      selectedTicket: ticketId
+    const { dispatch } = this.props
+    Object.keys(this.props.masterTicketList).map(ticketId => {
+      const ticket = this.props.masterTicketList[ticketId]
+      const newFormattedWaitTime = ticket.timeOpen.fromNow(true)
+      const action = {
+        type: constant.UPDATE_TIME,
+        id: ticketId,
+        formattedWaitTime: newFormattedWaitTime
+      }
+      dispatch(action)
     })
   }
 
@@ -63,14 +41,9 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' render={() => <TicketList ticketList={this.props.masterTicketList}/> } />
-          <Route path='/newticket' render={() => <NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
+          <Route path='/newticket' render={() => <NewTicketControl />} />
           <Route path='/admin' render={props =>
-            <Admin
-              ticketList={this.props.masterTicketList}
-              currentRouterPath={props.location.pathname}
-              onTicketSelection={this.handleChangingSelectedTicket}
-              selectedTicket={this.state.selectedTicket}
-            />}
+            <Admin currentRouterPath={props.location.pathname} />}
           />
           <Route component={NotFound} />
         </Switch>

@@ -2,6 +2,7 @@ import React from 'react'
 import Moment from 'moment'
 import { connect } from 'react-redux'
 import { v4 } from 'uuid'
+import constant from './../constants'
 
 const NewTicketForm = props => {
   let _names = null
@@ -10,22 +11,17 @@ const NewTicketForm = props => {
 
   const handleNewTicketFormSubmission = event => {
     event.preventDefault()
-    const { dispatch } = this.props
+    const { dispatch } = props
     const action = {
-      type: 'ADD_TICKET',
+      type: constant.ADD_TICKET,
       id: v4(),
       names: _names.value,
       location: _location.value,
       issue: _issue.value,
-      timeOpen: new Date().getTime()
+      timeOpen: new Moment(),
+      formattedWaitTime: new Moment().fromNow(true)
     }
     dispatch(action)
-    this.props.onNewTicketCreation({
-      names: _names.value,
-      location: _location.value,
-      issue: _issue.value,
-      timeOpen: new Moment()
-    })
     _names.value = ''
     _location.value = ''
     _issue.value = ''

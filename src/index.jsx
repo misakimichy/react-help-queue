@@ -14,8 +14,8 @@ let unsubscribe = store.subscribe(() =>
 
 const render = Component => {
   ReactDOM.render(
-    <Provider>
-      <HashRouter store={store}>
+    <Provider store={store}>
+      <HashRouter>
         <Component/>
       </HashRouter>
     </Provider>,
