@@ -53,7 +53,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  masterTicketList: PropTypes.object
+  masterTicketList: PropTypes.object,
+  dispatch: PropTypes.func
 }
 
 const mapStateToProps = state => {

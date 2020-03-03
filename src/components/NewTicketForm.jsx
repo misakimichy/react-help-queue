@@ -2,6 +2,7 @@ import React from 'react'
 import Moment from 'moment'
 import { connect } from 'react-redux'
 import { v4 } from 'uuid'
+import PropTypes from 'prop-types'
 import constant from './../constants'
 
 const NewTicketForm = props => {
@@ -48,6 +49,10 @@ const NewTicketForm = props => {
       </form>
     </div>
   )
+}
+
+NewTicketForm.propTypes = {
+  dispatch: PropTypes.func
 }
 
 export default connect()(NewTicketForm)
