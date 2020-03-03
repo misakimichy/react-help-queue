@@ -3,7 +3,8 @@ import Moment from 'moment'
 import { connect } from 'react-redux'
 import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
-import constant from './../constants'
+import constants from './../constants'
+const { constant } = constants
 
 const NewTicketForm = props => {
   let _names = null

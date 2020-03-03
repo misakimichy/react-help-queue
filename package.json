@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/misakimichy/react-help-queue#readme",
   "dependencies": {
+    "firebase": "^7.9.3",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",

@@ -18,7 +18,8 @@ Create a mock application of Epicodus Help Queue.
 
 
 ## Local Storage
-Local storage is available in this application. Local storage codes exist in `/src/middleware/persist-data-locally.js` and `/src/index/jsx`.
+Local storage is available in this application. Local storage codes exist in `/src/middleware/persist-data-locally.js` and `/src/index/jsx`.<br><br>
+
 ![gif of local storage](img/local-storage.gif)
 
 

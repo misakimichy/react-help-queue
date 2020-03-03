@@ -1,4 +1,5 @@
-import constant from './../constants'
+import constants from './../constants'
+const { constant } = constants
 
 export default (state = {}, action) => {
   switch(action.type) {

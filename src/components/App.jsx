@@ -7,8 +7,9 @@ import NewTicketControl from './NewTicketControl'
 import TicketList from './TicketList'
 import NotFound from './NotFound'
 import Admin from './Admin'
-import constant from './../constants'
 import './styles.css'
+import constants from './../constants'
+const { constant } = constants
 
 class App extends Component {
   componentDidMount() {
