@@ -1,10 +1,7 @@
 import React from 'react'
-import Moment from 'moment'
 import { connect } from 'react-redux'
-import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
-import constants from './../constants'
-const { constant } = constants
+import { addTicket } from './../actions'
 
 const NewTicketForm = props => {
   let _names = null
@@ -14,16 +11,7 @@ const NewTicketForm = props => {
   const handleNewTicketFormSubmission = event => {
     event.preventDefault()
     const { dispatch } = props
-    const action = {
-      type: constant.ADD_TICKET,
-      id: v4(),
-      names: _names.value,
-      location: _location.value,
-      issue: _issue.value,
-      timeOpen: new Moment(),
-      formattedWaitTime: new Moment().fromNow(true)
-    }
-    dispatch(action)
+    dispatch(addTicket(_names.value, _location.value, _issue.value))
     _names.value = ''
     _location.value = ''
     _issue.value = ''
@@ -31,7 +19,7 @@ const NewTicketForm = props => {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleNewTicketFormSubmission} autocomplete='off'>
+      <form onSubmit={handleNewTicketFormSubmission} autoComplete='off'>
         <input
           type='text'
           id='names'

@@ -29,6 +29,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.3.0",
     "styled-jsx": "^3.2.4",
     "uuid": "^3.2.1"
   },
