@@ -8,7 +8,7 @@ Create a mock application of Epicodus Help Queue.
 ## About this application
 - Application should be built with Webpack.
 
-- Components: header, form, help queue list, and Admin
+- Using _Rails-style_ code structure. Reference: [Redux Code structure](https://redux.js.org/faq/code-structure/)
 
 - The submitted form data will be stored in Firebase, and the data gets retrieved from firebase and renders in the main page.
 
