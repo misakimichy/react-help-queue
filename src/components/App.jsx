@@ -8,6 +8,7 @@ import TicketList from './TicketList'
 import NotFound from './NotFound'
 import Admin from './Admin'
 import './styles.css'
+import * as actions from './../actions'
 import constants from './../constants'
 const { constant } = constants
 
@@ -19,6 +20,9 @@ class App extends Component {
   }
 
   componentWillMount() {
+    const { dispatch } = this.props
+    const { watchFirebaseTicketsRef } = actions
+    dispatch(watchFirebaseTicketsRef())
     clearInterval(this.waitTimeUpdateTimer)
   }
 

@@ -16,3 +16,11 @@ export const addTicket = (_names, _locations, _issue) => {
     timeOpen: new Date().getTime()
   })
 }
+
+export const watchFirebaseTicketsRef = () => {
+  return dispatch => {
+    tickets.on('child_added', data => {
+      console.log(data.val())
+    })
+  }
+}
