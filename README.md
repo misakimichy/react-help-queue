@@ -1,6 +1,6 @@
 # Epicodus Help Queue
 
-#### _React: Epicodus Help Queue, Last Update 02/19/2020_
+#### _React: Epicodus Help Queue, Last Update 02/03/2020_
 
 ## Description
 Create a mock application of Epicodus Help Queue. 
@@ -8,17 +8,15 @@ Create a mock application of Epicodus Help Queue.
 ## About this application
 - Application should be built with Webpack.
 
-- Components: header, help queue and create a ticket
+- Components: header, form, help queue list, and Admin
+
+- The submitted form data will be stored in Firebase, and the data gets retrieved from firebase and renders in the main page.
 
 - Style: Use styles-jsx
 
-- Route: Use React-Router. 
-    - Home: `/`
-    - New ticket form: `/#/newticket`
-
 
 ## Local Storage
-Local storage is available in this application. Local storage codes exist in `/src/middleware/persist-data-locally.js` and `/src/index/jsx`.<br><br>
+Local storage is available at `c6ea8d2` commit. Local storage code need to exist in `/src/middleware/persist-data-locally.js` and call it in `/src/index/jsx`.<br><br>
 
 ![gif of local storage](img/local-storage.gif)
 
@@ -51,7 +49,7 @@ $ npm run start
 I welcome any feedbacks and questions to misaki.koonce@gmail.com
 
 ## Technologies Used
-Git, GitHub, ReactJS and Webpack
+Git, GitHub, Webpack, React, Redux and Firebase
 
 ## License
 Copyright © 2020 under the MIT License
