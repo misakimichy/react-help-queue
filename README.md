@@ -1,6 +1,6 @@
 # Epicodus Help Queue
 
-#### _React: Epicodus Help Queue, Last Update 02/03/2020_
+#### _React: Epicodus Help Queue, Last Update 03/03/2020_
 
 ## Description
 Create a mock application of Epicodus Help Queue. 
